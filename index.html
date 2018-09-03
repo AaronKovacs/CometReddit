@@ -3,18 +3,16 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Comet for reddit</title>
-	<meta name="generator" content="BBEdit 11.6" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fast and intuitive reddit client for iOS" />
 
 	<meta property="og:type" content="website">
-	<meta property="og:site_name" content="Aaron Kovacs">
-	<meta property="og:title" content="Aaron Kovacs" />
-	<meta property="og:description" content="Freelance iOS and Web Developer" />
+	<meta property="og:site_name" content="Comet for reddit">
+	<meta property="og:title" content="Comet for reddit" />
+	<meta property="og:description" content="A fast and intuitive reddit client for iOS" />
 	
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" value="Aaron Kovacs" />
-	<meta name="twitter:description" value="Freelance iOS and Web Developer" />
-
+	<meta name="twitter:title" value="Comet for reddit" />
+	<meta name="twitter:description" value="A fast and intuitive reddit client for iOS" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
@@ -36,7 +34,7 @@
 		}
 		
 		.headerContainer {
-			margin-top: 100px;
+			margin-top: 50px;
 			margin-bottom: 16px;
             margin-left: auto;
             margin-right: auto;
@@ -105,14 +103,6 @@
             margin-bottom: 0px;
 		}
 
-		.screenshot {
-            width: 100%;
-            height: auto;
-            display: block;
-            text-align: center;
-
-        }
-
         .downloadLink {
             font-weight: 500;
             font-size: 0.5em;
@@ -129,9 +119,8 @@
             font-size: 0.5em;
             text-decoration: none;
             border-radius: 8px;
-            
-
         }
+
         .linkIcon {
             padding: 10px 10px 10px 10px;
             border-radius: 8px;
@@ -142,16 +131,13 @@
             color: #575758;
         }
 
-        a:hover, a:active {
+        .screenshot {
+            width: auto;
+            height: 600px;
+            margin: auto;
+            display: block;
+            text-align: center;
         }
-
-        @media only screen and (min-width: 600px) {
-            .screenshot {
-                width: auto;
-                height: 600px;
-            }
-        }
-
 
 	</style>
 </head>
@@ -167,16 +153,17 @@
             </div>
         </div>
         <div>
-            <img class="screenshot" src="./CometScreenshots.png"/>
+            <picture>
+                <source media="(min-width: 600px)" srcset="screenshots@3x.png">
+                <source media="(min-width: 450px)" srcset="screenshots@2x.png">
+                <img class="screenshot" src="screenshots@1x.png">
+            </picture>
         </div>
-
         <h3>Fast. Intuitive. <font class="tinted">Amazing.</font><h3>
-        
         <div style="margin-top: 25px;">
             <a class="downloadLink"  href="https://goo.gl/forms/nE7xXEX66s1p0G0g1">Join Beta</a>
         </div>
         <div class="linkContainer">
-
             <div id='scDiv'>
                 <a class="iconLink" href="https://twitter.com/CometForReddit">
                     @CometForReddit · 
