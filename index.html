@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<title>Comet for reddit</title>
+    <meta charset="utf-8" />
+    <title>Comet for reddit</title>
     <meta name="description" content="A fast and intuitive reddit client for iOS" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<meta property="og:type" content="website">
-	<meta property="og:site_name" content="Comet for reddit">
-	<meta property="og:title" content="Comet for reddit" />
-	<meta property="og:description" content="A fast and intuitive reddit client for iOS" />
-	
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" value="Comet for reddit" />
-	<meta name="twitter:description" value="A fast and intuitive reddit client for iOS" />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Comet for reddit">
+    <meta property="og:title" content="Comet for reddit" />
+    <meta property="og:description" content="A fast and intuitive reddit client for iOS" />
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" value="Comet for reddit" />
+    <meta name="twitter:description" value="A fast and intuitive reddit client for iOS" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
@@ -22,27 +22,44 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-	<style>
-		body {
-			font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-			max-width: 100%;
-			margin: auto;
-			font-size: 1.1em;
-			line-height: 1.0em;
-			color: #444;
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 100%;
+            margin: auto;
+            font-size: 1.1em;
+            line-height: 1.0em;
+            color: #444;
             background-color: #000000;
             display:block;
-		}
-		
-		.headerContainer {
-			margin-top: 50px;
-			margin-bottom: 16px;
+        }
+        
+        .headerContainer {
+            margin-top: 50px;
+            margin-bottom: 16px;
             margin-left: auto;
             margin-right: auto;
-			display: inline-block;
+            display: inline-block;
             vertical-align:middle;
             align-self: center;
-		}
+        }
+
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+            vertical-align:middle;
+            align-self: center;
+        }
+
+        .textContainer {
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+            vertical-align:middle;
+            align-self: center;
+        }
+
 
         .linkContainer {
             margin-top: 40px;
@@ -54,6 +71,16 @@
             align-self: center;
         }
 
+        .text {
+            font-size: 0.7em;
+            font-weight: 300;
+        }
+
+        .largeTitle {
+            font-size: 1.0em;
+            font-weight: 600;
+        }
+
         #parent_div_1, #parent_div_2{
             margin-right:20px;
             float:left;
@@ -61,6 +88,15 @@
             align-items:center;
             vertical-align:middle;
             text-align: center;
+        }
+
+        #parent_div_3 {
+            margin-right:20px;
+            float:left;
+            justify-content:left;
+            align-items:left;
+            vertical-align:middle;
+            text-align: left;
         }
 
         #scDiv{
@@ -72,15 +108,15 @@
             text-align: center;
         }
 
-		h1 {
-			margin: 0px;
+        h1 {
+            margin: 0px;
             margin-top: 12px;
-			font-weight: 700;
-			font-size: 3.2em;
-			line-height: 1.0em;
-			color: #FFF;
+            font-weight: 700;
+            font-size: 3.2em;
+            line-height: 1.0em;
+            color: #FFF;
             padding: 0px;
-		}
+        }
 
         h3 {
             font-weight: 700;
@@ -95,14 +131,14 @@
             color: #ec583a;
         }
 
-		h4 {
-			font-weight: 500;
-			font-size: 1.0em;
+        h4 {
+            font-weight: 500;
+            font-size: 1.0em;
             line-height: 1.0em;
             color: #FFF;
             margin-top: 4px;
             margin-bottom: 0px;
-		}
+        }
 
         .downloadLink {
             font-weight: 500;
@@ -113,6 +149,10 @@
             border-radius: 8px;
             border: 1.0px solid #ec5a3c;
 
+        }
+
+        .download-button {
+            
         }
 
         a:link, a:visited {
@@ -140,7 +180,214 @@
             text-align: center;
         }
 
-	</style>
+        .highlight {
+            max-width: 60%;
+            margin-bottom: 32px;
+        }
+
+        @media only screen and (min-width: 1900px) {
+            .highlight {
+                max-width: 40%;
+            }
+        }
+
+        .highlight-content {
+            display: flex;
+        }
+
+        .highlight-content-reverse {
+            display: flex;
+        }
+
+        .highlight-image {
+            height: 100%;
+            width: 300px;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 32px;
+            margin-right: 32px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .highlight-text {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 32px;
+            height: 100%;
+            flex: 1;
+            font-size: 0.7em;
+            font-weight: 300;
+        }
+
+        .highlight-text-right {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 0px;
+            margin-right: 32px;
+            height: 100%;
+            flex: 1;
+            font-size: 0.7em;
+            font-weight: 300;
+        }
+
+        .higlight-paragraph {
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .highlight {
+                max-width: 100%;
+            }
+            .highlight-content {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .higlight-paragraph {
+                text-indent: 32px;
+                text-align: left;
+            }
+
+            .highlight-content-reverse {
+                width: 100%;
+                flex-direction: column-reverse;
+            }
+
+            .highlight-text {
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 32px;
+                padding-right: 32px;
+                margin-bottom: 16px;
+            }
+
+            .highlight-text-right {
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 32px;
+                padding-right: 32px;
+                margin-bottom: 16px;
+            }
+
+            .highlight-image {
+                width: 73%;
+                height: auto;
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 16px;
+                padding-right: 16px;
+                margin-bottom: 32px;
+            }
+        }
+
+
+        
+
+        .extra-highlight {
+            max-width: 60%;
+            margin-bottom: 32px;
+        }
+
+        @media only screen and (min-width: 1900px) {
+            .extra-highlight {
+                max-width: 40%;
+            }
+        }
+
+        
+
+        .extra-highlight-content {
+            display: flex;
+            margin-left: 32px;
+            margin-right: 32px;
+        }
+
+        .extra-highlight-column {
+            width: 50%;
+        }
+
+        .extra-highlight-column-right {
+            width: 50%;
+            margin-left: 32px;
+        }
+
+        .more-title {
+
+        }
+
+        @media only screen and (max-width: 768px) {
+            .extra-highlight {
+                max-width: 100%;
+            }
+
+            .more-title {
+                line-height: 1.1;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .extra-highlight-content {
+                flex-direction: column;
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .extra-highlight-column {
+                width: 100%;
+            }
+
+            .extra-highlight-column-right {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        
+
+        .extra-highlight-text {
+            font-size: 0.7em;
+            font-weight: 300;
+            margin-top: 40px;
+            background-color: #212121;
+            border-radius: 12px;
+            padding: 16px 16px 1px 16px;
+            vertical-align: middle;
+        }
+
+        .title-card {
+            max-width: 60%;
+            font-weight: 600;
+            font-size: 1.7em;
+            line-height: 1.0em;
+            margin-top: 40px;
+            padding-top: 1px;
+            padding-bottom: 45px;
+            padding-left: 15px;
+            padding-right: 15px;
+            color: #FFF;
+            background-color: #161616;
+            border-radius: 12px;
+            margin-left: 32px;
+            margin-right: 32px;
+        }
+
+        .title-card-content {
+            display: flex;
+            margin-left: 32px;
+            margin-right: 32px;
+        }
+
+        .title-card-image {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+
+    </style>
 </head>
 <body>
     <center>
@@ -162,7 +409,9 @@
         </div>
         <h3>Fast. Intuitive. <font class="tinted">Amazing.</font><h3>
         <div style="margin-top: 25px;">
-            <a class="downloadLink"  href="https://goo.gl/forms/nE7xXEX66s1p0G0g1">Join Beta</a>
+            <a href="https://itunes.apple.com/us/app/id1146204813?ls=1&mt=8">
+                <img src="download-white.svg">
+            </a>
         </div>
         <div class="linkContainer">
             <div id='scDiv'>
@@ -176,6 +425,148 @@
                 </a>
             </div>
         </div>
+
+
+
+
+        <div id="div1" class="highlight" style="margin-top: 40px;">
+            <div class="highlight-content">
+                <div class="highlight-text">
+                    <img src="./posts_thumbnail.png" width="100" height="100" />
+                    <h2>Posts</h2>
+                    <p class="higlight-paragraph">Comet contains three wildly different post layouts: Titles-Only, Thumbnails, and Previews. Each layout has been meticulously designed to let reddit's content shine through. Each layout can be adjusted with the 'Super-Compact Mode' setting.</p>
+                </div>
+                <div class="highlight-image">
+                    <img style="width: 100%; vertical-align: middle;" align="middle" src="posts.png">
+                </div>
+            </div>
+        </div>
+
+        <div id="div2" class="highlight">
+            <div class="highlight-content-reverse">
+                <div class="highlight-image">
+                    <img style="width: 100%; vertical-align: middle;" align="middle" src="mediaviewer.png">
+                </div>
+                <div class="highlight-text-right">
+                    <img src="./home_thumbnail.png" width="100" height="100" />
+                    <h2>The Mediaviewer</h2>
+                    <p class="higlight-paragraph">Designed to combine a simple interface with fluid gestures, the Mediaviewer makes browsing image heavy subreddits a breeze. The Mediaviewer currently supports not only Reddit's native media but also over 20 other media hosting platforms.</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="div1" class="highlight">
+            <div class="highlight-content">
+                
+                <div class="highlight-text">
+                    <img src="./comments_thumbnail.png" width="100" height="100" />
+                    <h2>Comments</h2>
+                    <p class="higlight-paragraph">Navigate comments with ease; Infinite scroll makes every thread that much better. Or jump through root comments with the highly customizable jump button.</p>
+                </div>
+                <div class="highlight-image">
+                    <img style="width: 100%; vertical-align: middle;" align="middle" src="comments.png">
+                </div>
+                
+            </div>
+        </div>
+
+         <div id="div2" class="highlight">
+            <div class="highlight-content-reverse">
+                <div class="highlight-image">
+                    <img style="width: 100%; vertical-align: middle;" align="middle" src="search.png">
+                </div>
+                <div class="highlight-text-right">
+                    <img src="./search_thumbnail.png" width="100" height="100" />
+                    <h2>Search</h2>
+                    <p class="higlight-paragraph">A clean interface unifies subreddit and posts search, with an even more intuitive UI that allows you to filter those same results. View search results with all the same comforts as regular posts.</p>
+                </div>
+                
+            </div>
+        </div>
+
+         <div id="div1" class="highlight">
+            <div class="highlight-content">
+                
+                <div class="highlight-text">
+                    <img src="./messages_thumbnail.png" width="100" height="100" />
+                    <h2>Notifications</h2>
+                    <p class="higlight-paragraph">At the heart of the notifications tab is a cohesive experience that allows you to differentiate between replies and messages quickly. View context or reply with a single swipe. Comet's markdown editor will make responding to even the most mundane messages a pleasure.</p>
+                </div>
+                <div class="highlight-image">
+                    <img style="width: 100%; vertical-align: middle;" align="middle" src="messages.png">
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="extra-highlight">
+            <h2 style="padding-top: 32px; margin-bottom: 0px;" class="more-title">And so much more...</h2>
+            <div class="extra-highlight-content">
+                <div class="extra-highlight-column">
+                    <div class="extra-highlight-text">
+                        <h4 style="text-align: left;">Timetravel</h4>
+                        <p style="text-align: left;">Swipe left or right on the bottom to timetravel back or forth through your history.</p>
+                    </div>
+                    <div class="extra-highlight-text">
+                        <h4 style="text-align: left;">Quick Actions</h4>
+                        <p style="text-align: left;">Force touch or long press the bottom bar from anywhere to get instant access to commonly used functions like search.
+                        </p>
+                    </div>
+                    <div class="extra-highlight-text">
+                        <h4 style="text-align: left;">History</h4>
+                        <p style="text-align: left;">Comet maintains an offline record of the last 500 posts you've visited. Just tap 'History' under the account tab.</p>
+                    </div>
+                    <div class="extra-highlight-text">
+                        <h4 style="text-align: left;">Favorites</h4>
+                        <p style="text-align: left;">Maintain a collection of favorite subreddits with quick access from the subscriptions tab.
+                        </p>
+                    </div>
+                </div>
+                <div class="extra-highlight-column-right">
+                    <div class="extra-highlight-text">
+                        <h4 style="text-align: left;">Auto Theme Change</h4>
+                        <p style="text-align: left;">Manually set the hour of day you want Comet to switch themes.
+                        </p>
+                    </div>
+                    <div class="extra-highlight-text">
+                        <h4 style="text-align: left;">User Tagging</h4>
+                        <p style="text-align: left;">Tag users to keep track of your friends or enemies across Comet.
+                        </p>
+                    </div>
+                    <div class="extra-highlight-text">
+                        <h4 style="text-align: left;">Table Viewer</h4>
+                        <p style="text-align: left;">View reddit's tables in a simple to understand popout view.
+                        </p>
+                    </div>
+                    <div class="extra-highlight-text">
+                        <h4 style="text-align: left;">Default Home Subreddit</h4>
+                        <p style="text-align: left;">Change the default home subreddit to whatever you like.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 30px;">
+            <a href="https://itunes.apple.com/us/app/id1146204813?ls=1&mt=8">
+                <img src="download-white.svg">
+            </a>
+        </div>
+        <div class="linkContainer">
+            <div id='scDiv'>
+                <a class="iconLink" href="https://twitter.com/CometForReddit">
+                    @CometForReddit · 
+                </a>
+            </div>
+            <div id='scDiv'>
+                <a class="iconLink" style="margin-left: 6px; " href="https://www.reddit.com/r/Comet">
+                   r/Comet
+               </a>
+           </div>
+       </div>
     </center>
 
 </body>
