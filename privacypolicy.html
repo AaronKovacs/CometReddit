@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Comet for reddit</title>
+    <meta name="description" content="A fast and intuitive reddit client for iOS" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Comet for reddit">
+    <meta property="og:title" content="Comet for reddit" />
+    <meta property="og:description" content="A fast and intuitive reddit client for iOS" />
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" value="Comet for reddit" />
+    <meta name="twitter:description" value="A fast and intuitive reddit client for iOS" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 100%;
+            margin: auto;
+            font-size: 1.1em;
+            color: #444;
+            background-color: #000000;
+            display:block;
+        }
+        
+        .headerContainer {
+            margin-top: 50px;
+            margin-bottom: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+            vertical-align:middle;
+            align-self: center;
+        }
+
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+            vertical-align:middle;
+            align-self: center;
+        }
+
+        .textContainer {
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+            vertical-align:middle;
+            align-self: center;
+        }
+
+
+        .linkContainer {
+            margin-top: 40px;
+            margin-bottom: 16px;
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+            vertical-align:middle;
+            align-self: center;
+        }
+
+        p {
+            color: #FFF;
+            text-align: left;
+            text-indent: 32px;
+        }
+
+        a {
+            font-size: 1.1em;
+            color: #5AC8FA;
+        }
+
+        li {
+            color: #FFF;
+            text-align: left;
+        }
+
+        .text {
+            font-size: 0.7em;
+            font-weight: 300;
+        }
+
+        .largeTitle {
+            font-size: 1.0em;
+            font-weight: 600;
+        }
+
+        #parent_div_1, #parent_div_2{
+            margin-right:20px;
+            float:left;
+            justify-content:center;
+            align-items:center;
+            vertical-align:middle;
+            text-align: center;
+        }
+
+        #parent_div_3 {
+            margin-right:20px;
+            float:left;
+            justify-content:left;
+            align-items:left;
+            vertical-align:middle;
+            text-align: left;
+        }
+
+        #scDiv{
+
+            float:left;
+            justify-content:center;
+            align-items:center;
+            vertical-align:middle;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0px;
+            margin-top: 12px;
+            font-weight: 700;
+            font-size: 3.2em;
+            line-height: 1.0em;
+            color: #FFF;
+            padding: 0px;
+        }
+
+        h3 {
+            font-weight: 700;
+            font-size: 1.6em;
+            line-height: 1.0em;
+            color: #FFF;
+            margin-top: 16px;
+            margin-bottom: 0px;
+        }
+
+        .tinted {
+            color: #ec583a;
+        }
+
+        h4 {
+            font-weight: 500;
+            font-size: 1.0em;
+            line-height: 1.0em;
+            color: #FFF;
+            margin-top: 4px;
+            margin-bottom: 0px;
+        }
+
+        .downloadLink {
+            font-weight: 500;
+            font-size: 0.5em;
+            padding: 10px 20px 10px 20px;
+            text-decoration: none;
+            color: #ec5a3c;
+            border-radius: 8px;
+            border: 1.0px solid #ec5a3c;
+
+        }
+
+        .download-button {
+            
+        }
+
+        a:link, a:visited {
+            
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .linkIcon {
+            padding: 10px 10px 10px 10px;
+            border-radius: 8px;
+        }
+
+        .iconLink {
+            padding: 0px 0px 0px 0px;
+            color: #575758;
+        }
+
+        .screenshot {
+            width: auto;
+            height: 600px;
+            margin: auto;
+            display: block;
+            text-align: center;
+        }
+
+        .highlight {
+            max-width: 50%;
+            margin-bottom: 32px;
+        }
+
+        @media only screen and (min-width: 1900px) {
+            .highlight {
+                max-width: 40%;
+            }
+        }
+
+        .highlight-content {
+            display: flex;
+        }
+
+        .highlight-content-reverse {
+            display: flex;
+        }
+
+        .highlight-image {
+            height: 100%;
+            width: 300px;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 32px;
+            margin-right: 32px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .highlight-text {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 32px;
+            height: 100%;
+            flex: 1;
+            font-size: 0.7em;
+            font-weight: 300;
+        }
+
+        .highlight-text-right {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 0px;
+            margin-right: 32px;
+            height: 100%;
+            flex: 1;
+            font-size: 0.7em;
+            font-weight: 300;
+        }
+
+        .higlight-paragraph {
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .highlight {
+                max-width: 100%;
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+            .highlight-content {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .higlight-paragraph {
+                text-indent: 32px;
+                text-align: left;
+            }
+
+            .highlight-content-reverse {
+                width: 100%;
+                flex-direction: column-reverse;
+            }
+
+            .highlight-text {
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 32px;
+                padding-right: 32px;
+                margin-bottom: 16px;
+            }
+
+            .highlight-text-right {
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 32px;
+                padding-right: 32px;
+                margin-bottom: 16px;
+            }
+
+            .highlight-image {
+                width: 73%;
+                height: auto;
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 16px;
+                padding-right: 16px;
+                margin-bottom: 32px;
+            }
+        }
+
+
+        
+
+        .extra-highlight {
+            max-width: 60%;
+            margin-bottom: 32px;
+        }
+
+        @media only screen and (min-width: 1900px) {
+            .extra-highlight {
+                max-width: 40%;
+            }
+        }
+
+        
+
+        .extra-highlight-content {
+            display: flex;
+            margin-left: 32px;
+            margin-right: 32px;
+        }
+
+        .extra-highlight-column {
+            width: 50%;
+        }
+
+        .extra-highlight-column-right {
+            width: 50%;
+            margin-left: 32px;
+        }
+
+        .more-title {
+
+        }
+
+        @media only screen and (max-width: 768px) {
+            .extra-highlight {
+                max-width: 100%;
+            }
+
+            .more-title {
+                line-height: 1.1;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .extra-highlight-content {
+                flex-direction: column;
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .extra-highlight-column {
+                width: 100%;
+            }
+
+            .extra-highlight-column-right {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        
+
+        .extra-highlight-text {
+            font-size: 0.7em;
+            font-weight: 300;
+            margin-top: 40px;
+            background-color: #212121;
+            border-radius: 12px;
+            padding: 16px 16px 1px 16px;
+            vertical-align: middle;
+        }
+
+        .title-card {
+            max-width: 60%;
+            font-weight: 600;
+            font-size: 1.7em;
+            line-height: 1.0em;
+            margin-top: 40px;
+            padding-top: 1px;
+            padding-bottom: 45px;
+            padding-left: 15px;
+            padding-right: 15px;
+            color: #FFF;
+            background-color: #161616;
+            border-radius: 12px;
+            margin-left: 32px;
+            margin-right: 32px;
+        }
+
+        .title-card-content {
+            display: flex;
+            margin-left: 32px;
+            margin-right: 32px;
+        }
+
+        .title-card-image {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <center>
+        <a style="font-size: 1.0em;" href="https://CometReddit.app">
+            <div class="headerContainer">
+                <div id='parent_div_1'>
+                    <img src="./Comet.png" width="100" height="100" />
+                </div>
+
+                <div id='parent_div_2'>
+                    <h1>Comet</h1><h4>for reddit</h4>
+                </div>
+            </div>
+        </a>
+        <div class="highlight">
+            <h3>Privacy Policy</h3>
+            <p>Respecting your privacy is a very important part of <i>Comet for reddit</i>’s core philosophies. Comet only collects anonymous crash analytics to improve the quality of the app. No other information is collected.</p>
+
+            <p>In the context of this privacy policy, ‘Comet for reddit’ refers to not only the iOS app but also the actions of the developer regarding <i>Comet for reddit</i>.</p>
+
+            <p><i>Comet for reddit</i> collects anonymous crash analytics and usage data through Fabric’s Crashlytics (A Google product), whose detailed privacy policy can be found on their <a href="https://docs.fabric.io/apple/fabric/data-privacy.html">website</a>. <i>Comet for reddit</i> utilizes version 1.9.0. To summarize their privacy policy Crashlytics collects the following anonymously:</p>
+            <ul>
+                <li>Device UUID (Not UDID), this id is provided by Apple to developer and is uniquely generated every time the app is installed. This does not uniquely identify a device, but rather a unique installation of <i>Comet for reddit</i>.</li>
+                <li>IP Addresses - once received it is geo-coded to a city and displayed on Audience Insights map for 10 seconds. Retained temporarily.</li>
+                <li>Crash traces</li>
+            </ul>
+            <p>The data collected by Crashlytics is used to make <i>Comet for reddit</i> a better experience by allowing the developer to better understand the origins of crashes. </p>
+            <p>While <i>Comet for reddit</i> uses a third party solution for crash analytics, Apple’s built-in crash solution does also collect crash data. This data is sent to the developer on an opt-in basis which can be disabled via iOS’s Setting’s app.</p>
+
+            <p><i>Comet for reddit</i> does not share any personally identifying information publicly or with third-parties.</p>
+
+            <p><i>Comet for reddit</i> may link to external sites that are not operated by the developer. Please be aware that the developer has no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.</p>
+            <p>As <i>Comet for reddit</i> is a client for Reddit.com, Reddit’s privacy policy does inherently apply, this can be found on their <a href="https://www.redditinc.com/policies/privacy-policy">website</a>.</p>
+            <p>Questions regarding this policy can be directly sent to the developer of <i>Comet for reddit</i> at the following email: <a href="mailto:AaronKovacsDev@gmail.com">AaronKovacsDev@gmail.com</a>.</p>
+        </div>
+        <div class="linkContainer">
+            <div id='scDiv'>
+                <a class="iconLink" style="font-size: 0.5em; font-weight: 500;" href="https://twitter.com/CometForReddit">
+                    @CometForReddit · 
+                </a>
+            </div>
+            <div id='scDiv'>
+                <a class="iconLink" style="margin-left: 6px; font-size: 0.5em; font-weight: 500;" href="https://www.reddit.com/r/Comet">
+                   r/Comet · 
+               </a>
+           </div>
+           <div id='scDiv'>
+                <a class="iconLink" style="margin-left: 6px; font-size: 0.5em; font-weight: 500;" href="https://drive.google.com/uc?export=download&id=1gtbRKKa-KrqpwPZ0RWzWwRMS7OjIsig5">
+                   Press Kit
+               </a>
+           </div>
+        </div>
+
+           
+       </div>
+    </center>
+
+</body>
+</html>
+
